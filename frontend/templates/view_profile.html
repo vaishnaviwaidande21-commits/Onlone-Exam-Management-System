@@ -1,0 +1,354 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>View Profile</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:linear-gradient(
+        135deg,
+        #e3f2fd,
+        #ffffff,
+        #e8eaf6
+    );
+    padding:30px;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+}
+
+/* HEADER */
+
+.header{
+    background:linear-gradient(
+        135deg,
+        #0f4c81,
+        #1976d2
+    );
+
+    color:white;
+    padding:25px 30px;
+    border-radius:18px;
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,0.15);
+
+    margin-bottom:25px;
+}
+
+.header h1{
+    font-size:30px;
+}
+
+.header p{
+    margin-top:6px;
+    opacity:0.9;
+}
+
+/* PROFILE CARD */
+
+.profile-card{
+    background:white;
+    padding:35px;
+    border-radius:20px;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.10);
+}
+
+/* PROFILE ICON */
+
+.profile-icon{
+    width:100px;
+    height:100px;
+
+    margin:0 auto 25px;
+
+    border-radius:50%;
+
+    background:linear-gradient(
+        135deg,
+        #1976d2,
+        #0f4c81
+    );
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:50px;
+
+    box-shadow:
+        0 8px 20px rgba(25,118,210,0.3);
+}
+
+/* PROFILE TITLE */
+
+.profile-title{
+    text-align:center;
+    color:#1565c0;
+    font-size:25px;
+    margin-bottom:30px;
+}
+
+/* INFORMATION */
+
+.profile-info{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.info-box{
+    background:#f5f9ff;
+
+    padding:20px;
+
+    border-radius:14px;
+
+    border-left:5px solid #1976d2;
+
+    transition:0.2s;
+}
+
+.info-box:hover{
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 5px 15px rgba(0,0,0,0.08);
+}
+
+.info-label{
+    display:block;
+
+    color:#777;
+
+    font-size:14px;
+
+    margin-bottom:7px;
+}
+
+.info-value{
+    color:#222;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    word-break:break-word;
+}
+
+/* BACK BUTTON */
+
+.back-btn{
+    display:block;
+
+    width:220px;
+
+    margin:30px auto 0;
+
+    padding:13px 20px;
+
+    background:linear-gradient(
+        135deg,
+        #1976d2,
+        #0f4c81
+    );
+
+    color:white;
+
+    text-decoration:none;
+
+    text-align:center;
+
+    border-radius:10px;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    transition:0.2s;
+}
+
+.back-btn:hover{
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 6px 15px rgba(25,118,210,0.3);
+}
+
+/* MOBILE */
+
+@media(max-width:650px){
+
+    body{
+        padding:15px;
+    }
+
+    .profile-card{
+        padding:25px 20px;
+    }
+
+    .profile-info{
+        grid-template-columns:1fr;
+    }
+
+    .header h1{
+        font-size:24px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+
+    <!-- HEADER -->
+
+    <div class="header">
+
+        <h1>👤 View Profile</h1>
+
+        <p>
+            View your student profile information
+        </p>
+
+    </div>
+
+
+    <!-- PROFILE CARD -->
+
+    <div class="profile-card">
+
+
+        <!-- PROFILE ICON -->
+
+        <div class="profile-icon">
+            👤
+        </div>
+
+
+        <h2 class="profile-title">
+            Student Profile
+        </h2>
+
+
+        <!-- PROFILE INFORMATION -->
+
+        <div class="profile-info">
+
+
+            <!-- STUDENT NAME -->
+
+            <div class="info-box">
+
+                <span class="info-label">
+                    👤 Student Name
+                </span>
+
+                <span class="info-value">
+
+                    {{ student["name"] or "N/A" }}
+
+                </span>
+
+            </div>
+
+
+            <!-- STUDENT ID -->
+
+            <div class="info-box">
+
+                <span class="info-label">
+                    🆔 Student ID
+                </span>
+
+                <span class="info-value">
+
+                    {{ student["student_id"] or "N/A" }}
+
+                </span>
+
+            </div>
+
+
+            <!-- STUDENT EMAIL -->
+
+            <div class="info-box">
+
+                <span class="info-label">
+                    📧 Student Email
+                </span>
+
+                <span class="info-value">
+
+                    {{ student["email"] or "N/A" }}
+
+                </span>
+
+            </div>
+
+
+            <!-- REGISTRATION DATE -->
+
+            <div class="info-box">
+
+                <span class="info-label">
+                    📅 Registration Date
+                </span>
+
+                <span class="info-value">
+
+                    {{ student["registration_date"] or "N/A" }}
+
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- BACK BUTTON -->
+
+        <a
+            href="/student"
+            class="back-btn">
+
+            ← Back to Dashboard
+
+        </a>
+
+
+    </div>
+
+
+</div>
+
+</body>
+
+</html>
+```

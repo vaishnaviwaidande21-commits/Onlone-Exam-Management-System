@@ -1,0 +1,763 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Question Bank Report</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',Arial,sans-serif;
+}
+
+body{
+    background:#f4f8ff;
+}
+
+.container{
+    width:95%;
+    margin:35px auto;
+}
+
+.main-title{
+    text-align:center;
+    color:#0f4c81;
+    font-size:32px;
+    margin-bottom:40px;
+}
+
+.subject-title{
+    background:linear-gradient(135deg,#0f4c81,#1976d2);
+    color:white;
+    padding:18px 25px;
+    border-radius:15px;
+    font-size:27px;
+    margin-top:40px;
+    margin-bottom:25px;
+}
+
+.type-title{
+    background:white;
+    color:#0f4c81;
+    padding:15px 20px;
+    border-left:6px solid #1976d2;
+    border-radius:10px;
+    margin-top:25px;
+    margin-bottom:15px;
+    font-size:21px;
+    font-weight:bold;
+    box-shadow:0 5px 15px rgba(0,0,0,0.10);
+}
+
+.question-card{
+    background:white;
+    margin-bottom:15px;
+    padding:20px;
+    border-radius:14px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.08);
+}
+
+.question-number{
+    color:#0f4c81;
+    font-weight:bold;
+    font-size:17px;
+    margin-bottom:10px;
+}
+
+.question-text{
+    font-size:17px;
+    color:#222;
+    margin-bottom:15px;
+}
+
+.options{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    margin-bottom:15px;
+}
+
+.option{
+    background:#f4f8ff;
+    border:1px solid #d5e5f5;
+    padding:11px;
+    border-radius:8px;
+}
+
+.answer{
+    background:#e8f5e9;
+    border-left:5px solid #2e7d32;
+    padding:11px;
+    border-radius:8px;
+    font-weight:bold;
+    color:#1b5e20;
+}
+
+.back{
+    display:block;
+    width:220px;
+    margin:40px auto;
+    background:#1565c0;
+    color:white;
+    padding:13px;
+    border-radius:10px;
+    text-decoration:none;
+    text-align:center;
+    font-weight:bold;
+}
+
+.back:hover{
+    background:#0d47a1;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1 class="main-title">
+📚 Question Bank Report
+</h1>
+
+
+<!-- ==================================================
+     PYTHON
+================================================== -->
+
+<div class="subject-title">
+📘 Python
+</div>
+
+
+<!-- PYTHON MCQ -->
+
+<div class="type-title">
+MCQ — 50 Questions
+</div>
+
+{% for q in questions %}
+
+{% if q[1]|lower == "python" and q[9] == "MCQ" %}
+
+<div class="question-card">
+
+<div class="question-number">
+Question {{ loop.index }}
+</div>
+
+<div class="question-text">
+{{ q[3] }}
+</div>
+
+<div class="options">
+
+<div class="option">
+<strong>Option A:</strong> {{ q[4] }}
+</div>
+
+<div class="option">
+<strong>Option B:</strong> {{ q[5] }}
+</div>
+
+<div class="option">
+<strong>Option C:</strong> {{ q[6] }}
+</div>
+
+<div class="option">
+<strong>Option D:</strong> {{ q[7] }}
+</div>
+
+</div>
+
+<div class="answer">
+Correct Answer: {{ q[8] }}
+</div>
+
+</div>
+
+{% endif %}
+
+{% endfor %}
+
+
+<!-- PYTHON TRUE FALSE -->
+
+<div class="type-title">
+True / False — 50 Questions
+</div>
+
+{% for q in questions %}
+
+{% if q[1]|lower == "python" and q[9] == "True/False" %}
+
+<div class="question-card">
+
+<div class="question-number">
+Question {{ loop.index }}
+</div>
+
+<div class="question-text">
+{{ q[3] }}
+</div>
+
+<div class="options">
+
+<div class="option">
+<strong>Option A:</strong> True
+</div>
+
+<div class="option">
+<strong>Option B:</strong> False
+</div>
+
+</div>
+
+<div class="answer">
+Correct Answer: {{ q[8] }}
+</div>
+
+</div>
+
+{% endif %}
+
+{% endfor %}
+
+
+<!-- PYTHON FILL IN THE BLANKS -->
+
+<div class="type-title">
+Fill in the Blanks — 50 Questions
+</div>
+
+{% for q in questions %}
+
+{% if q[1]|lower == "python" and q[9] == "Fill in the Blanks" %}
+
+<div class="question-card">
+
+<div class="question-number">
+Question {{ loop.index }}
+</div>
+
+<div class="question-text">
+{{ q[3] }}
+</div>
+
+<div class="options">
+
+<div class="option">
+<strong>Option A:</strong> {{ q[4] }}
+</div>
+
+<div class="option">
+<strong>Option B:</strong> {{ q[5] }}
+</div>
+
+<div class="option">
+<strong>Option C:</strong> {{ q[6] }}
+</div>
+
+<div class="option">
+<strong>Option D:</strong> {{ q[7] }}
+</div>
+
+</div>
+
+<div class="answer">
+<strong>Correct Answer:</strong> {{ q[8] }}
+</div>
+
+</div>
+
+{% endif %}
+
+{% endfor %}
+
+
+
+<!-- ==================================================
+     JAVA
+================================================== -->
+
+<div class="subject-title">
+☕ Java
+</div>
+
+
+<!-- JAVA MCQ -->
+
+<div class="type-title">
+MCQ — 50 Questions
+</div>
+
+{% for q in questions %}
+
+{% if q[1]|lower == "java" and q[9] == "MCQ" %}
+
+<div class="question-card">
+
+<div class="question-number">
+Question {{ loop.index }}
+</div>
+
+<div class="question-text">
+{{ q[3] }}
+</div>
+
+<div class="options">
+
+<div class="option">
+<strong>Option A:</strong> {{ q[4] }}
+</div>
+
+<div class="option">
+<strong>Option B:</strong> {{ q[5] }}
+</div>
+
+<div class="option">
+<strong>Option C:</strong> {{ q[6] }}
+</div>
+
+<div class="option">
+<strong>Option D:</strong> {{ q[7] }}
+</div>
+
+</div>
+
+<div class="answer">
+Correct Answer: {{ q[8] }}
+</div>
+
+</div>
+
+{% endif %}
+
+{% endfor %}
+
+
+<!-- JAVA TRUE FALSE -->
+
+<div class="type-title">
+True / False — 50 Questions
+</div>
+
+{% for q in questions %}
+
+{% if q[1]|lower == "java" and q[9] == "True/False" %}
+
+<div class="question-card">
+
+<div class="question-number">
+Question {{ loop.index }}
+</div>
+
+<div class="question-text">
+{{ q[3] }}
+</div>
+
+<div class="options">
+
+<div class="option">
+<strong>Option A:</strong> True
+</div>
+
+<div class="option">
+<strong>Option B:</strong> False
+</div>
+
+</div>
+
+<div class="answer">
+Correct Answer: {{ q[8] }}
+</div>
+
+</div>
+
+{% endif %}
+
+{% endfor %}
+
+
+<!-- JAVA FILL IN THE BLANKS -->
+
+<div class="type-title">
+Fill in the Blanks — 50 Questions
+</div>
+
+{% for q in questions %}
+
+{% if q[1]|lower == "java" and q[9] == "Fill in the Blanks" %}
+
+<div class="question-card">
+
+<div class="question-number">
+Question {{ loop.index }}
+</div>
+
+<div class="question-text">
+{{ q[3] }}
+</div>
+
+<div class="options">
+
+<div class="option">
+<strong>Option A:</strong> {{ q[4] }}
+</div>
+
+<div class="option">
+<strong>Option B:</strong> {{ q[5] }}
+</div>
+
+<div class="option">
+<strong>Option C:</strong> {{ q[6] }}
+</div>
+
+<div class="option">
+<strong>Option D:</strong> {{ q[7] }}
+</div>
+
+</div>
+
+<div class="answer">
+<strong>Correct Answer:</strong> {{ q[8] }}
+</div>
+
+</div>
+
+{% endif %}
+
+{% endfor %}
+
+
+
+<!-- ==================================================
+     HTML
+================================================== -->
+
+<div class="subject-title">
+🌐 HTML
+</div>
+
+
+<!-- HTML MCQ -->
+
+<div class="type-title">
+MCQ — 50 Questions
+</div>
+
+{% for q in questions %}
+
+{% if q[1]|lower == "html" and q[9] == "MCQ" %}
+
+<div class="question-card">
+
+<div class="question-number">
+Question {{ loop.index }}
+</div>
+
+<div class="question-text">
+{{ q[3] }}
+</div>
+
+<div class="options">
+
+<div class="option">
+<strong>Option A:</strong> {{ q[4] }}
+</div>
+
+<div class="option">
+<strong>Option B:</strong> {{ q[5] }}
+</div>
+
+<div class="option">
+<strong>Option C:</strong> {{ q[6] }}
+</div>
+
+<div class="option">
+<strong>Option D:</strong> {{ q[7] }}
+</div>
+
+</div>
+
+<div class="answer">
+Correct Answer: {{ q[8] }}
+</div>
+
+</div>
+
+{% endif %}
+
+{% endfor %}
+
+
+<!-- HTML TRUE FALSE -->
+
+<div class="type-title">
+True / False — 50 Questions
+</div>
+
+{% for q in questions %}
+
+{% if q[1]|lower == "html" and q[9] == "True/False" %}
+
+<div class="question-card">
+
+<div class="question-number">
+Question {{ loop.index }}
+</div>
+
+<div class="question-text">
+{{ q[3] }}
+</div>
+
+<div class="options">
+
+<div class="option">
+<strong>Option A:</strong> True
+</div>
+
+<div class="option">
+<strong>Option B:</strong> False
+</div>
+
+</div>
+
+<div class="answer">
+Correct Answer: {{ q[8] }}
+</div>
+
+</div>
+
+{% endif %}
+
+{% endfor %}
+
+
+<!-- HTML FILL IN THE BLANKS -->
+
+<div class="type-title">
+Fill in the Blanks — 50 Questions
+</div>
+
+{% for q in questions %}
+
+{% if q[1]|lower == "html" and q[9] == "Fill in the Blanks" %}
+
+<div class="question-card">
+
+<div class="question-number">
+Question {{ loop.index }}
+</div>
+
+<div class="question-text">
+{{ q[3] }}
+</div>
+
+<div class="options">
+
+<div class="option">
+<strong>Option A:</strong> {{ q[4] }}
+</div>
+
+<div class="option">
+<strong>Option B:</strong> {{ q[5] }}
+</div>
+
+<div class="option">
+<strong>Option C:</strong> {{ q[6] }}
+</div>
+
+<div class="option">
+<strong>Option D:</strong> {{ q[7] }}
+</div>
+
+</div>
+
+<div class="answer">
+<strong>Correct Answer:</strong> {{ q[8] }}
+</div>
+
+</div>
+
+{% endif %}
+
+{% endfor %}
+
+
+
+<!-- ==================================================
+     DBMS
+================================================== -->
+
+<div class="subject-title">
+🗄️ DBMS
+</div>
+
+
+<!-- DBMS MCQ -->
+
+<div class="type-title">
+MCQ — 50 Questions
+</div>
+
+{% for q in questions %}
+
+{% if q[1]|lower == "dbms" and q[9] == "MCQ" %}
+
+<div class="question-card">
+
+<div class="question-number">
+Question {{ loop.index }}
+</div>
+
+<div class="question-text">
+{{ q[3] }}
+</div>
+
+<div class="options">
+
+<div class="option">
+<strong>Option A:</strong> {{ q[4] }}
+</div>
+
+<div class="option">
+<strong>Option B:</strong> {{ q[5] }}
+</div>
+
+<div class="option">
+<strong>Option C:</strong> {{ q[6] }}
+</div>
+
+<div class="option">
+<strong>Option D:</strong> {{ q[7] }}
+</div>
+
+</div>
+
+<div class="answer">
+Correct Answer: {{ q[8] }}
+</div>
+
+</div>
+
+{% endif %}
+
+{% endfor %}
+
+
+<!-- DBMS TRUE FALSE -->
+
+<div class="type-title">
+True / False — 50 Questions
+</div>
+
+{% for q in questions %}
+
+{% if q[1]|lower == "dbms" and q[9] == "True/False" %}
+
+<div class="question-card">
+
+<div class="question-number">
+Question {{ loop.index }}
+</div>
+
+<div class="question-text">
+{{ q[3] }}
+</div>
+
+<div class="options">
+
+<div class="option">
+<strong>Option A:</strong> True
+</div>
+
+<div class="option">
+<strong>Option B:</strong> False
+</div>
+
+</div>
+
+<div class="answer">
+Correct Answer: {{ q[8] }}
+</div>
+
+</div>
+
+{% endif %}
+
+{% endfor %}
+
+
+<!-- DBMS FILL IN THE BLANKS -->
+
+<div class="type-title">
+Fill in the Blanks — 50 Questions
+</div>
+
+{% for q in questions %}
+
+{% if q[1]|lower == "dbms" and q[9] == "Fill in the Blanks" %}
+
+<div class="question-card">
+
+<div class="question-number">
+Question {{ loop.index }}
+</div>
+
+<div class="question-text">
+{{ q[3] }}
+</div>
+
+<div class="options">
+
+<div class="option">
+<strong>Option A:</strong> {{ q[4] }}
+</div>
+
+<div class="option">
+<strong>Option B:</strong> {{ q[5] }}
+</div>
+
+<div class="option">
+<strong>Option C:</strong> {{ q[6] }}
+</div>
+
+<div class="option">
+<strong>Option D:</strong> {{ q[7] }}
+</div>
+
+</div>
+
+<div class="answer">
+<strong>Correct Answer:</strong> {{ q[8] }}
+</div>
+
+</div>
+
+{% endif %}
+
+{% endfor %}
+
+
+<a class="back" href="/manage_reports">
+⬅ Back To Reports
+</a>
+
+
+</div>
+
+</body>
+
+</html>
+```

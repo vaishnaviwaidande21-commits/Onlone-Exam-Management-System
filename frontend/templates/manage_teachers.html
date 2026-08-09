@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<title>Manage Teachers</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+
+body{
+
+    background:#f4f8ff;
+
+}
+
+
+
+.container{
+
+    width:90%;
+    margin:50px auto;
+    text-align:center;
+
+}
+
+
+
+h1{
+
+    color:#0f4c81;
+    margin-bottom:40px;
+
+}
+
+
+
+.cards{
+
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+
+}
+
+
+
+.card{
+
+    width:220px;
+    height:170px;
+    background:white;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+    padding:30px;
+    transition:0.3s;
+
+}
+
+
+
+.card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+
+
+.icon{
+
+    font-size:45px;
+    margin-bottom:15px;
+
+}
+
+
+
+.card a{
+
+    text-decoration:none;
+    color:#0f4c81;
+    font-size:18px;
+    font-weight:bold;
+
+}
+
+
+
+.card a:hover{
+
+    color:#1976d2;
+
+}
+
+
+
+.back{
+
+    display:inline-block;
+    margin-top:40px;
+    padding:12px 25px;
+    background:#1976d2;
+    color:white;
+    text-decoration:none;
+    border-radius:10px;
+
+}
+
+
+
+</style>
+
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<h1>
+👨‍🏫 Teacher Management
+</h1>
+
+
+
+
+<div class="cards">
+
+
+
+<!-- ADD TEACHER -->
+
+<div class="card">
+
+<div class="icon">
+➕
+</div>
+
+<a href="/add_teacher">
+Add Teacher
+</a>
+
+</div>
+
+
+
+
+
+<!-- VIEW TEACHERS -->
+
+<div class="card">
+
+<div class="icon">
+👁️
+</div>
+
+<a href="/view_teachers">
+View Teachers
+</a>
+
+</div>
+
+
+
+
+
+<!-- UPDATE TEACHER -->
+
+<div class="card">
+
+<div class="icon">
+✏️
+</div>
+
+<a href="/update_teacher">
+Update Teacher
+</a>
+
+</div>
+
+
+
+
+
+<!-- DELETE TEACHER -->
+
+<div class="card">
+
+<div class="icon">
+🗑️
+</div>
+
+<a href="/delete_teacher">
+Delete Teacher
+</a>
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+<a class="back" href="/admin">
+⬅ Back To Dashboard
+</a>
+
+
+
+
+</div>
+
+
+</body>
+
+</html>

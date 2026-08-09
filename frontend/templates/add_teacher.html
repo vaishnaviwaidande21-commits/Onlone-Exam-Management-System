@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<title>Add Teacher</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family:'Segoe UI',sans-serif;
+    background:#f4f8ff;
+}
+
+
+.container{
+
+    width:500px;
+
+    margin:50px auto;
+
+    background:white;
+
+    padding:35px;
+
+    border-radius:20px;
+
+    box-shadow:0 15px 35px rgba(0,0,0,0.15);
+
+}
+
+
+h1{
+
+    text-align:center;
+
+    color:#0f4c81;
+
+}
+
+
+
+.icon{
+
+    text-align:center;
+
+    font-size:50px;
+
+}
+
+
+
+input,select{
+
+    width:100%;
+
+    padding:13px;
+
+    margin:12px 0;
+
+    border:1px solid #ccc;
+
+    border-radius:10px;
+
+    font-size:16px;
+
+}
+
+
+
+button{
+
+    width:100%;
+
+    padding:14px;
+
+    background:#1976d2;
+
+    color:white;
+
+    border:none;
+
+    border-radius:10px;
+
+    font-size:17px;
+
+    cursor:pointer;
+
+}
+
+
+
+button:hover{
+
+    background:#0f4c81;
+
+}
+
+
+
+.back{
+
+    display:block;
+
+    text-align:center;
+
+    margin-top:20px;
+
+    text-decoration:none;
+
+    color:#1976d2;
+
+}
+
+
+</style>
+
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<div class="icon">
+👨‍🏫
+</div>
+
+
+<h1>
+Add Teacher
+</h1>
+
+
+
+<form action="/add_teacher" method="POST">
+
+
+
+<input 
+type="text"
+name="name"
+placeholder="Teacher Name"
+required>
+
+
+
+<input
+type="email"
+name="email"
+placeholder="Teacher Email"
+required>
+
+
+
+<input
+type="password"
+name="password"
+placeholder="Password"
+required>
+
+
+
+
+<select name="subject" required>
+
+<option value="">
+Select Subject
+</option>
+
+<option>
+Python
+</option>
+
+<option>
+Java
+</option>
+
+<option>
+DBMS
+</option>
+
+<option>
+HTML
+</option>
+
+<option>
+C Programming
+</option>
+
+</select>
+
+
+
+
+<button type="submit">
+
+Add Teacher
+
+</button>
+
+
+
+</form>
+
+
+<a href="/admin" class="back">
+
+← Back to Dashboard
+
+</a>
+
+
+
+</div>
+
+
+</body>
+
+</html>

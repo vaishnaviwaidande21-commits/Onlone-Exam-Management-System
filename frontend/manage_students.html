@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<title>Manage Students</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+
+body{
+
+    min-height:100vh;
+    background:#f4f8ff;
+
+}
+
+
+.container{
+
+    width:90%;
+    margin:50px auto;
+    text-align:center;
+
+}
+
+
+h1{
+
+    color:#0f4c81;
+    margin-bottom:40px;
+    font-size:36px;
+
+}
+
+
+
+.cards{
+
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+
+}
+
+
+
+.card{
+
+    width:230px;
+    height:180px;
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:25px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+
+}
+
+
+
+.icon{
+
+    font-size:50px;
+
+    margin-bottom:25px;
+
+}
+
+
+
+.card a{
+
+    display:block;
+
+    background:#1976d2;
+
+    color:white;
+
+    padding:12px;
+
+    border-radius:10px;
+
+    text-decoration:none;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+}
+
+
+
+.card a:hover{
+
+    background:#0f4c81;
+
+}
+
+
+
+.back{
+
+    display:inline-block;
+
+    margin-top:40px;
+
+    padding:12px 25px;
+
+    background:#1565c0;
+
+    color:white;
+
+    border-radius:10px;
+
+    text-decoration:none;
+
+}
+
+
+</style>
+
+
+</head>
+
+
+
+<body>
+
+
+<div class="container">
+
+
+<h1>
+🎓 Student Management
+</h1>
+
+
+
+<div class="cards">
+
+
+
+<div class="card">
+
+<div class="icon">
+➕
+</div>
+
+<a href="{{ url_for('add_student') }}">
+Add Student
+</a>
+
+</div>
+
+
+
+
+<div class="card">
+
+<div class="icon">
+👁️
+</div>
+
+<a href="{{ url_for('view_students') }}">
+View Students
+</a>
+
+</div>
+
+
+
+
+<div class="card">
+
+<div class="icon">
+✏️
+</div>
+
+<a href="{{ url_for('update_student') }}">
+Update Student
+</a>
+
+</div>
+
+
+
+
+<div class="card">
+
+<div class="icon">
+🗑️
+</div>
+
+<a href="{{ url_for('delete_student') }}">
+Delete Student
+</a>
+
+</div>
+
+
+
+</div>
+
+
+
+
+<a class="back" href="{{ url_for('admin') }}">
+⬅ Back To Dashboard
+</a>
+
+
+
+</div>
+
+
+</body>
+
+
+</html>

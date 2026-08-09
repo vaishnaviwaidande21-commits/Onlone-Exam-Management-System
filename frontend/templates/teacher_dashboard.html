@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<title>Teacher Dashboard</title>
+
+<link rel="stylesheet" 
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+
+body{
+    background:linear-gradient(135deg,#eef5ff,#ffffff);
+}
+
+
+
+/* Sidebar */
+
+.sidebar{
+
+    width:260px;
+    height:100vh;
+    position:fixed;
+
+    background:linear-gradient(180deg,#1565c0,#6a1b9a);
+
+    color:white;
+
+    padding:30px 20px;
+
+}
+
+
+
+.sidebar h2{
+
+    text-align:center;
+    margin-bottom:40px;
+
+}
+
+
+
+.sidebar a{
+
+    display:flex;
+    align-items:center;
+    gap:15px;
+
+    padding:15px;
+
+    margin:12px 0;
+
+    color:white;
+
+    text-decoration:none;
+
+    border-radius:15px;
+
+    transition:.3s;
+
+}
+
+
+
+.sidebar a:hover{
+
+    background:white;
+
+    color:#1565c0;
+
+}
+
+
+
+
+
+/* Main */
+
+.main{
+
+    margin-left:260px;
+
+    padding:35px;
+
+}
+
+
+
+
+
+/* Header */
+
+.header{
+
+    background:linear-gradient(135deg,#2196f3,#673ab7);
+
+    color:white;
+
+    padding:30px;
+
+    border-radius:25px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.2);
+
+}
+
+
+
+.header h1{
+
+    font-size:35px;
+
+}
+
+
+
+
+
+/* Cards */
+
+.cards{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:25px;
+
+    margin-top:35px;
+
+}
+
+
+
+
+.card{
+
+    background:white;
+
+    padding:30px 20px;
+
+    border-radius:25px;
+
+    text-align:center;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.12);
+
+    transition:.3s;
+
+}
+
+
+
+.card:hover{
+
+    transform:translateY(-10px);
+
+}
+
+
+
+
+
+.icon{
+
+    width:80px;
+
+    height:80px;
+
+    margin:auto;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:35px;
+
+    color:white;
+
+}
+
+
+
+.exam{
+
+background:linear-gradient(135deg,#ff9800,#ff5722);
+
+}
+
+
+
+.question{
+
+background:linear-gradient(135deg,#00c853,#009688);
+
+}
+
+
+
+.ai{
+
+background:linear-gradient(135deg,#9c27b0,#673ab7);
+
+}
+
+
+
+.result{
+
+background:linear-gradient(135deg,#2196f3,#1565c0);
+
+}
+
+
+
+.card h3{
+
+    margin-top:20px;
+
+    color:#333;
+
+}
+
+
+
+.card p{
+
+    color:gray;
+
+    margin-top:10px;
+
+}
+
+
+
+
+
+
+/* Bottom Info */
+
+.info{
+
+    margin-top:35px;
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:25px;
+
+    box-shadow:0 10px 20px rgba(0,0,0,.1);
+
+}
+
+
+
+.info h2{
+
+    color:#1565c0;
+
+}
+
+
+
+</style>
+
+</head>
+
+
+
+<body>
+
+
+
+<div class="sidebar">
+
+
+<h2>
+👨‍🏫 Teacher Panel
+</h2>
+
+
+
+
+<a href="/teacher">
+
+<i class="fa-solid fa-house"></i>
+
+Dashboard
+
+</a>
+
+
+
+
+<a href="/create_exam">
+
+<i class="fa-solid fa-file-circle-plus"></i>
+
+Create Exam
+
+</a>
+
+
+
+
+<a href="/manage_questions">
+
+<i class="fa-solid fa-book"></i>
+
+Manage Questions
+
+</a>
+
+
+
+
+<a href="/ai_generator">
+
+<i class="fa-solid fa-robot"></i>
+
+AI Generator
+
+</a>
+
+
+
+
+<a href="/student_results">
+
+<i class="fa-solid fa-chart-line"></i>
+
+Results
+
+</a>
+
+
+
+
+<a href="/">
+
+<i class="fa-solid fa-right-from-bracket"></i>
+
+Logout
+
+</a>
+
+
+
+</div>
+
+
+
+
+
+
+<div class="main">
+
+
+
+<div class="header">
+
+
+<h1>
+Welcome Teacher 👨‍🏫
+</h1>
+
+
+<p>
+Online Exam Management System
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="cards">
+
+
+
+<a href="/create_exam" style="text-decoration:none;color:inherit;">
+
+
+<div class="card">
+
+
+<div class="icon exam">
+
+<i class="fa-solid fa-file-pen"></i>
+
+</div>
+
+
+<h3>
+Create Exam
+</h3>
+
+
+<p>
+Create and manage online exams
+</p>
+
+
+</div>
+
+
+</a>
+
+
+
+
+
+
+
+<a href="/manage_questions" style="text-decoration:none;color:inherit;">
+
+
+<div class="card">
+
+
+<div class="icon question">
+
+<i class="fa-solid fa-circle-question"></i>
+
+</div>
+
+
+<h3>
+Questions
+</h3>
+
+
+<p>
+Manage question bank
+</p>
+
+
+</div>
+
+
+</a>
+
+
+
+
+
+
+
+
+<a href="/ai_generator" style="text-decoration:none;color:inherit;">
+
+
+<div class="card">
+
+
+<div class="icon ai">
+
+<i class="fa-solid fa-robot"></i>
+
+</div>
+
+
+<h3>
+AI Generator
+</h3>
+
+
+<p>
+Generate smart questions
+</p>
+
+
+</div>
+
+
+</a>
+
+
+
+
+
+
+
+
+<a href="/student_results" style="text-decoration:none;color:inherit;">
+
+
+<div class="card">
+
+
+<div class="icon result">
+
+<i class="fa-solid fa-chart-simple"></i>
+
+</div>
+
+
+<h3>
+Results
+</h3>
+
+
+<p>
+Analyze student performance
+</p>
+
+
+</div>
+
+
+</a>
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+<div class="info">
+
+
+<h2>
+📢 Teacher Features
+</h2>
+
+
+<br>
+
+
+<p>✅ Create Online Exams</p>
+
+<p>✅ Manage Questions</p>
+
+<p>✅ Generate AI Questions</p>
+
+<p>✅ View Student Results</p>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+</body>
+
+</html>

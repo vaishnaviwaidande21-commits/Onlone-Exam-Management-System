@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<title>Admin Dashboard</title>
+
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+
+body{
+
+    background:#f4f8ff;
+
+}
+
+
+
+.sidebar{
+
+    width:260px;
+    height:100vh;
+    background:linear-gradient(180deg,#0f4c81,#1976d2);
+
+    color:white;
+    position:fixed;
+
+    left:0;
+    top:0;
+
+    padding:30px 20px;
+
+}
+
+
+
+.sidebar h2{
+
+    text-align:center;
+    margin-bottom:40px;
+
+}
+
+
+
+.sidebar a{
+
+    display:block;
+
+    color:white;
+
+    text-decoration:none;
+
+    padding:15px;
+
+    margin:10px 0;
+
+    border-radius:12px;
+
+    transition:.3s;
+
+}
+
+
+
+.sidebar a:hover{
+
+    background:white;
+    color:#0f4c81;
+
+}
+
+
+
+
+.main{
+
+    margin-left:260px;
+
+    padding:40px;
+
+}
+
+
+
+
+
+.header{
+
+    background:linear-gradient(135deg,#2196f3,#673ab7);
+
+    color:white;
+
+    padding:30px;
+
+    border-radius:20px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.15);
+
+}
+
+
+
+
+.cards{
+
+    display:flex;
+
+    gap:25px;
+
+    margin-top:35px;
+
+    flex-wrap:wrap;
+
+}
+
+
+
+
+
+.card{
+
+    width:230px;
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:20px;
+
+    text-align:center;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.12);
+
+    transition:.3s;
+
+}
+
+
+
+.card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+
+
+
+.icon{
+
+    font-size:45px;
+
+    margin-bottom:20px;
+
+}
+
+
+
+
+.card h3{
+
+    color:#0f4c81;
+
+    margin-bottom:20px;
+
+}
+
+
+
+.card a{
+
+    text-decoration:none;
+
+    background:#1976d2;
+
+    color:white;
+
+    padding:10px 20px;
+
+    border-radius:10px;
+
+    display:inline-block;
+
+}
+
+
+
+</style>
+
+
+</head>
+
+
+
+<body>
+
+
+
+<div class="sidebar">
+
+
+<h2>
+📚 Admin Panel
+</h2>
+
+
+
+<a href="/admin">
+🏠 Dashboard
+</a>
+
+
+
+<a href="/manage_teachers">
+👨‍🏫 Manage Teachers
+</a>
+
+
+
+
+<a href="/manage_students">
+👨‍🎓 Manage Students
+</a>
+
+
+
+
+<a href="/manage_exams">
+📝 Manage Exams
+</a>
+
+
+
+
+<a href="/manage_questions">
+❓ Manage Questions
+</a>
+
+
+
+
+<a href="/manage_reports">
+📊 Reports
+</a>
+
+
+
+
+<a href="/">
+🚪 Logout
+</a>
+
+
+
+</div>
+
+
+
+
+
+
+
+<div class="main">
+
+
+
+<div class="header">
+
+
+<h1>
+Welcome Admin 👋
+</h1>
+
+
+<p>
+Online Exam Management System
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="cards">
+
+
+
+
+
+<div class="card">
+
+<div class="icon">
+👨‍🏫
+</div>
+
+
+<h3>
+Teachers
+</h3>
+
+
+<a href="/manage_teachers">
+Manage
+</a>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="card">
+
+<div class="icon">
+👨‍🎓
+</div>
+
+
+<h3>
+Students
+</h3>
+
+
+<a href="/manage_students">
+Manage
+</a>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="card">
+
+<div class="icon">
+📝
+</div>
+
+
+<h3>
+Exams
+</h3>
+
+
+<a href="/manage_exams">
+Manage
+</a>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="card">
+
+<div class="icon">
+📊
+</div>
+
+
+<h3>
+Reports
+</h3>
+
+
+<a href="/manage_reports">
+View
+</a>
+
+
+</div>
+
+
+
+
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+
+</body>
+
+</html>

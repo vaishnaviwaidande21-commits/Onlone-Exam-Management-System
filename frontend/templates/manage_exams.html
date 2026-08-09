@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manage Exams</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:#f4f8ff;
+}
+
+.container{
+    width:90%;
+    margin:50px auto;
+}
+
+h1{
+    text-align:center;
+    color:#0f4c81;
+    margin-bottom:40px;
+}
+
+.cards{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+}
+
+.card{
+    width:230px;
+    height:200px;
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.icon{
+    font-size:50px;
+    margin-bottom:20px;
+}
+
+.card-button{
+    display:block;
+    width:100%;
+    background:#1976d2;
+    color:white;
+    padding:12px;
+    border-radius:10px;
+    font-weight:bold;
+}
+
+.card:hover .card-button{
+    background:#0f4c81;
+}
+
+.back{
+    display:block;
+    width:220px;
+    margin:40px auto 0;
+    background:#1565c0;
+    color:white;
+    padding:12px 25px;
+    border-radius:10px;
+    text-decoration:none;
+    text-align:center;
+    font-weight:bold;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>📝 Exam Management</h1>
+
+<div class="cards">
+
+<div class="card" onclick="window.location.href='/add_exam'">
+    <div class="icon">➕</div>
+    <div class="card-button">Add Exam</div>
+</div>
+
+<div class="card" onclick="window.location.href='/view_exams'">
+    <div class="icon">👁️</div>
+    <div class="card-button">View Exams</div>
+</div>
+
+<div class="card" onclick="window.location.href='/update_exam'">
+    <div class="icon">✏️</div>
+    <div class="card-button">Update Exam</div>
+</div>
+
+<div class="card" onclick="window.location.href='/delete_exam'">
+    <div class="icon">🗑️</div>
+    <div class="card-button">Delete Exam</div>
+</div>
+
+</div>
+
+<a class="back" href="/admin">
+    ⬅ Back To Admin Dashboard
+</a>
+
+</div>
+
+</body>
+</html>

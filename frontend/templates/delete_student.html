@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Delete Student</title>
+
+<style>
+
+body{
+
+    font-family:Arial;
+    background:#f4f8ff;
+
+}
+
+
+.container{
+
+    width:400px;
+    margin:80px auto;
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 10px 25px gray;
+
+}
+
+
+
+h1{
+
+    color:#e53935;
+
+}
+
+
+
+input,button{
+
+    width:100%;
+    padding:12px;
+    margin:15px 0;
+    border-radius:8px;
+
+}
+
+
+
+button{
+
+    background:#e53935;
+    color:white;
+    border:none;
+    font-size:16px;
+    cursor:pointer;
+
+}
+
+
+
+button:hover{
+
+    background:#b71c1c;
+
+}
+
+
+
+a{
+
+    text-decoration:none;
+
+}
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<h1>
+🗑 Delete Student
+</h1>
+
+
+
+<form method="POST" action="/delete_student">
+
+
+<input 
+type="text"
+name="student_id"
+placeholder="Enter Student ID"
+required>
+
+
+
+<button type="submit">
+
+Delete Student
+
+</button>
+
+
+
+</form>
+
+
+
+<a href="/manage_students">
+
+⬅ Back
+
+</a>
+
+
+
+</div>
+
+
+</body>
+
+</html>

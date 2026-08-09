@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<title>Delete Teacher</title>
+
+
+<style>
+
+body{
+
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#f4f8ff;
+
+}
+
+
+.container{
+
+    width:450px;
+    margin:60px auto;
+    background:white;
+    padding:35px;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+    text-align:center;
+
+}
+
+
+
+h1{
+
+    color:#d32f2f;
+
+}
+
+
+
+input{
+
+    width:90%;
+    padding:12px;
+    margin:20px 0;
+    border:1px solid #ccc;
+    border-radius:8px;
+
+}
+
+
+
+button{
+
+    width:95%;
+    padding:12px;
+    background:#d32f2f;
+    color:white;
+    border:none;
+    border-radius:8px;
+    font-size:16px;
+    cursor:pointer;
+
+}
+
+
+
+button:hover{
+
+    background:#b71c1c;
+
+}
+
+
+
+.back{
+
+    display:block;
+    margin-top:20px;
+    text-decoration:none;
+    color:#1976d2;
+
+}
+
+
+</style>
+
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<h1>
+🗑 Delete Teacher
+</h1>
+
+
+
+<form method="POST">
+
+
+<input 
+type="number"
+name="teacher_id"
+placeholder="Enter Teacher ID"
+required>
+
+
+<button type="submit">
+
+Delete Teacher
+
+</button>
+
+
+</form>
+
+
+
+<a class="back" href="/manage_teachers">
+
+⬅ Back To Teacher Management
+
+</a>
+
+
+
+</div>
+
+
+</body>
+
+</html>

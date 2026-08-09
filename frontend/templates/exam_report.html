@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Exam Report</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:#f4f8ff;
+}
+
+.container{
+    width:95%;
+    margin:40px auto;
+}
+
+h1{
+    text-align:center;
+    color:#0f4c81;
+    margin-bottom:30px;
+}
+
+.report-box{
+    background:white;
+    padding:25px;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+    overflow-x:auto;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th{
+    background:#1976d2;
+    color:white;
+    padding:14px;
+    text-align:center;
+}
+
+td{
+    padding:12px;
+    text-align:center;
+    border-bottom:1px solid #ddd;
+}
+
+tr:hover{
+    background:#f1f7ff;
+}
+
+.no-data{
+    text-align:center;
+    color:#777;
+    padding:25px;
+    font-size:18px;
+}
+
+.back{
+    display:block;
+    width:220px;
+    margin:30px auto 0;
+    background:#1565c0;
+    color:white;
+    padding:12px 25px;
+    border-radius:10px;
+    text-decoration:none;
+    text-align:center;
+    font-weight:bold;
+}
+
+.back:hover{
+    background:#0d47a1;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>📝 Exam Report</h1>
+
+<div class="report-box">
+
+{% if exams %}
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Exam ID</th>
+<th>Exam Name</th>
+<th>Subject</th>
+<th>Number of Questions</th>
+<th>Duration</th>
+<th>Total Marks</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+{% for exam in exams %}
+
+<tr>
+
+<td>{{ exam[0] }}</td>
+<td>{{ exam[1] }}</td>
+<td>{{ exam[2] }}</td>
+<td>{{ exam[4] if exam[4] else '-' }}</td>
+<td>{{ exam[5] }} Minutes</td>
+<td>{{ exam[6] if exam[6] else '-' }}</td>
+
+</tr>
+
+{% endfor %}
+
+</tbody>
+
+</table>
+
+{% else %}
+
+<div class="no-data">
+
+No exams found.
+
+</div>
+
+{% endif %}
+
+</div>
+
+<a class="back" href="/manage_reports">
+
+⬅ Back To Reports
+
+</a>
+
+</div>
+
+</body>
+
+</html>

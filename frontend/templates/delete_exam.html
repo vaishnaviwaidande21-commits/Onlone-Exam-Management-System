@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<title>Delete Exam</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:linear-gradient(135deg,#ffebee,#ffffff);
+}
+
+.container{
+    width:500px;
+    margin:70px auto;
+    background:white;
+    padding:40px;
+    border-radius:25px;
+    box-shadow:0 15px 30px rgba(0,0,0,0.15);
+}
+
+h1{
+    text-align:center;
+    color:#c62828;
+    margin-bottom:20px;
+}
+
+.message{
+    text-align:center;
+    color:#555;
+    margin-bottom:30px;
+    font-size:16px;
+}
+
+input{
+    width:100%;
+    padding:14px;
+    margin:12px 0;
+    border-radius:10px;
+    border:1px solid #ccc;
+    font-size:16px;
+}
+
+input:focus{
+    outline:none;
+    border-color:#e53935;
+}
+
+button{
+    width:100%;
+    padding:14px;
+    margin-top:15px;
+    border:none;
+    border-radius:12px;
+    background:#e53935;
+    color:white;
+    font-size:17px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#c62828;
+}
+
+.back{
+    display:block;
+    text-align:center;
+    margin-top:25px;
+    color:#1976d2;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🗑️ Delete Exam</h1>
+
+<p class="message">
+Enter the Exam ID you want to delete.
+</p>
+
+<form method="POST">
+
+<input
+type="number"
+name="exam_id"
+placeholder="Enter Exam ID"
+required>
+
+<button type="submit">
+Delete Exam
+</button>
+
+</form>
+
+<a
+class="back"
+href="/manage_exam">
+
+⬅ Back To Exam Management
+
+</a>
+
+</div>
+
+</body>
+
+</html>

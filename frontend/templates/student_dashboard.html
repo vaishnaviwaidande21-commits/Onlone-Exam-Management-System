@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Student Dashboard</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:linear-gradient(135deg,#e3f2fd,#ffffff,#e8eaf6);
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header{
+    background:linear-gradient(135deg,#0f4c81,#1976d2);
+    color:white;
+    padding:25px 50px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    box-shadow:0 8px 20px rgba(0,0,0,0.2);
+}
+
+.header-left{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.header-icon{
+    font-size:45px;
+}
+
+.header h1{
+    font-size:30px;
+}
+
+.header p{
+    margin-top:4px;
+}
+
+.logout{
+    color:white;
+    text-decoration:none;
+    background:#d32f2f;
+    padding:11px 20px;
+    border-radius:10px;
+    font-weight:bold;
+}
+
+.logout:hover{
+    background:#b71c1c;
+}
+
+
+/* =========================
+   MAIN
+========================= */
+
+.container{
+    width:90%;
+    max-width:1100px;
+    margin:45px auto;
+}
+
+
+/* =========================
+   WELCOME
+========================= */
+
+.welcome{
+    background:white;
+    padding:30px;
+    border-radius:22px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.12);
+    display:flex;
+    align-items:center;
+    gap:25px;
+    margin-bottom:35px;
+}
+
+.student-icon{
+    width:90px;
+    height:90px;
+    background:#e3f2fd;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:50px;
+}
+
+.welcome h2{
+    color:#0f4c81;
+    margin-bottom:8px;
+}
+
+.welcome p{
+    color:#666;
+    font-size:16px;
+}
+
+
+/* =========================
+   DASHBOARD TITLE
+========================= */
+
+.dashboard-title{
+    text-align:center;
+    color:#0f4c81;
+    margin-bottom:25px;
+    font-size:28px;
+}
+
+
+/* =========================
+   CARDS
+========================= */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+    gap:25px;
+    width:100%;
+}
+
+.card{
+    width:100%;
+    min-width:0;
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    text-align:center;
+    text-decoration:none;
+    color:#333;
+    box-shadow:0 10px 25px rgba(0,0,0,0.12);
+    transition:0.3s;
+    border-top:5px solid #1976d2;
+    cursor:pointer;
+    display:block;
+}
+
+.card:hover{
+    transform:translateY(-7px);
+    box-shadow:0 18px 30px rgba(0,0,0,0.18);
+}
+
+.card-icon{
+    width:75px;
+    height:75px;
+    margin:0 auto 15px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:38px;
+    background:#e3f2fd;
+}
+
+.card h3{
+    color:#0f4c81;
+    margin-bottom:8px;
+}
+
+.card p{
+    color:#777;
+    font-size:14px;
+}
+
+
+/* =========================
+   CARD COLORS
+========================= */
+
+/* Start Exam */
+.card:nth-child(2){
+    border-top-color:#43a047;
+}
+
+.card:nth-child(2) .card-icon{
+    background:#e8f5e9;
+}
+
+
+/* View Results */
+.card:nth-child(3){
+    border-top-color:#8e24aa;
+}
+
+.card:nth-child(3) .card-icon{
+    background:#f3e5f5;
+}
+
+
+/* View Profile */
+.card:nth-child(4){
+    border-top-color:#fb8c00;
+}
+
+.card:nth-child(4) .card-icon{
+    background:#fff3e0;
+}
+
+
+/* =========================
+   BOOK SECTION
+========================= */
+
+.books-section{
+    margin-top:40px;
+    background:linear-gradient(135deg,#1565c0,#42a5f5);
+    color:white;
+    padding:30px;
+    border-radius:22px;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+.books-section h2{
+    margin-bottom:10px;
+}
+
+.books{
+    display:flex;
+    justify-content:center;
+    gap:18px;
+    margin-top:20px;
+    font-size:45px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+    text-align:center;
+    margin:35px 0;
+    color:#777;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:700px){
+
+    .header{
+        padding:20px;
+    }
+
+    .header h1{
+        font-size:22px;
+    }
+
+    .container{
+        width:94%;
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .welcome{
+        flex-direction:column;
+        text-align:center;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<div class="header">
+
+```
+<div class="header-left">
+
+    <div class="header-icon">
+        📚
+    </div>
+
+    <div>
+
+        <h1>
+            Online Exam Management System
+        </h1>
+
+        <p>
+            Student Portal
+        </p>
+
+    </div>
+
+</div>
+
+
+<a href="/" class="logout">
+    🚪 Logout
+</a>
+```
+
+</div>
+
+<!-- =========================
+     MAIN
+========================= -->
+
+<div class="container">
+
+```
+<!-- WELCOME -->
+
+<div class="welcome">
+
+    <div class="student-icon">
+        👨‍🎓
+    </div>
+
+    <div>
+
+        <h2>
+            Welcome Student 👋
+        </h2>
+
+        <p>
+            Welcome to your student dashboard.
+            Manage your exams, results and profile easily.
+        </p>
+
+    </div>
+
+</div>
+
+
+
+<!-- DASHBOARD TITLE -->
+
+<h2 class="dashboard-title">
+    🎓 Student Dashboard
+</h2>
+
+
+
+<!-- =========================
+     FOUR CARDS
+========================= -->
+
+<div class="cards">
+
+
+    <!-- 1. AVAILABLE EXAMS -->
+
+    <a href="/available_exams" class="card">
+
+        <div class="card-icon">
+            📋
+        </div>
+
+        <h3>
+            View Available Exams
+        </h3>
+
+        <p>
+            Check the exams available for you.
+        </p>
+
+    </a>
+
+
+
+    <!-- 2. START EXAM -->
+
+    <a href="/start_exam_selection" class="card">
+
+        <div class="card-icon">
+            📝
+        </div>
+
+        <h3>
+            Start Exam
+        </h3>
+
+        <p>
+            Start your online examination.
+        </p>
+
+    </a>
+
+
+
+    <!-- 3. VIEW RESULTS -->
+
+    <a href="/view_result" class="card">
+
+        <div class="card-icon">
+            📊
+        </div>
+
+        <h3>
+            View Results
+        </h3>
+
+        <p>
+            View your examination results and marks.
+        </p>
+
+    </a>
+
+
+
+    <!-- 4. VIEW PROFILE -->
+
+    <a href="/view_profile" class="card">
+
+        <div class="card-icon">
+            👤
+        </div>
+
+        <h3>
+            View Profile
+        </h3>
+
+        <p>
+            View your student profile details.
+        </p>
+
+    </a>
+
+
+</div>
+
+
+
+<!-- =========================
+     BOOK SECTION
+========================= -->
+
+<div class="books-section">
+
+    <h2>
+        📚 Keep Learning, Keep Growing! 🎓
+    </h2>
+
+    <p>
+        Prepare well and give your best in every examination.
+    </p>
+
+    <div class="books">
+
+        <span>📕</span>
+        <span>📗</span>
+        <span>📘</span>
+        <span>📙</span>
+        <span>📚</span>
+        <span>🎓</span>
+
+    </div>
+
+</div>
+
+
+
+<!-- FOOTER -->
+
+<div class="footer">
+
+    © 2026 Online Exam Management System
+
+</div>
+```
+
+</div>
+
+</body>
+
+</html>

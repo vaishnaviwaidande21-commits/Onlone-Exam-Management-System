@@ -1,0 +1,141 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<title>View Exams</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:linear-gradient(135deg,#e3f2fd,#ffffff);
+}
+
+.container{
+    width:95%;
+    margin:40px auto;
+    background:white;
+    padding:30px;
+    border-radius:25px;
+    box-shadow:0 15px 30px rgba(0,0,0,0.15);
+}
+
+h1{
+    text-align:center;
+    color:#0f4c81;
+    margin-bottom:30px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    overflow:hidden;
+}
+
+th{
+    background:#1976d2;
+    color:white;
+    padding:15px;
+}
+
+td{
+    padding:14px;
+    text-align:center;
+    border-bottom:1px solid #ddd;
+}
+
+tr:hover{
+    background:#f4f8ff;
+}
+
+.back{
+    display:block;
+    width:220px;
+    margin:30px auto 0;
+    padding:12px;
+    background:#1565c0;
+    color:white;
+    text-decoration:none;
+    border-radius:10px;
+    text-align:center;
+    font-weight:bold;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>👁️ View Exams</h1>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Exam ID</th>
+
+<th>Exam Name</th>
+
+<th>Subject Name</th>
+
+<th>Number of Questions</th>
+
+<th>Duration</th>
+
+<th>Total Marks</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+{% for exam in exams %}
+
+<tr>
+
+<td>{{ exam.exam_id }}</td>
+
+<td>{{ exam.exam_name }}</td>
+
+<td>{{ exam.subject }}</td>
+
+<td>{{ exam.number_of_questions }}</td>
+
+<td>{{ exam.duration }} Minutes</td>
+
+<td>{{ exam.total_marks }} Marks</td>
+
+</tr>
+
+{% endfor %}
+
+</tbody>
+
+</table>
+
+<a class="back" href="/manage_exam">
+⬅ Back To Exam Management
+</a>
+
+</div>
+
+</body>
+
+</html>
+```

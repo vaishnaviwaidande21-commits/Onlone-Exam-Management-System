@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Start Exam</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:linear-gradient(135deg,#e3f2fd,#ffffff,#e8eaf6);
+}
+
+/* HEADER */
+
+.header{
+    background:linear-gradient(135deg,#0f4c81,#1976d2);
+    color:white;
+    padding:20px 45px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    box-shadow:0 8px 20px rgba(0,0,0,0.2);
+}
+
+.header-left{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.header-icon{
+    font-size:40px;
+}
+
+.header h1{
+    font-size:27px;
+}
+
+.timer{
+    background:#d32f2f;
+    padding:12px 22px;
+    border-radius:10px;
+    font-weight:bold;
+    font-size:20px;
+    min-width:120px;
+    text-align:center;
+}
+
+/* MAIN */
+
+.container{
+    width:90%;
+    max-width:1000px;
+    margin:35px auto;
+}
+
+/* EXAM INFORMATION */
+
+.exam-info{
+    background:white;
+    padding:25px;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.12);
+    margin-bottom:25px;
+}
+
+.exam-info h2{
+    color:#0f4c81;
+    margin-bottom:15px;
+}
+
+.info{
+    display:inline-block;
+    margin-right:30px;
+    margin-top:8px;
+    color:#555;
+}
+
+.info strong{
+    color:#0f4c81;
+}
+
+/* PROGRESS */
+
+.progress-box{
+    background:white;
+    padding:18px 22px;
+    border-radius:15px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.10);
+    margin-bottom:25px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.progress-item{
+    text-align:center;
+    min-width:120px;
+}
+
+.progress-number{
+    font-size:22px;
+    font-weight:bold;
+    color:#1976d2;
+}
+
+.progress-label{
+    font-size:14px;
+    color:#666;
+    margin-top:4px;
+}
+
+/* QUESTION CARD */
+
+.question-card{
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.12);
+}
+
+.question-number{
+    color:#1976d2;
+    font-weight:bold;
+    font-size:17px;
+    margin-bottom:12px;
+}
+
+.question{
+    font-size:20px;
+    color:#222;
+    margin-bottom:25px;
+    line-height:1.5;
+}
+
+/* OPTIONS */
+
+.option{
+    display:block;
+    padding:15px;
+    margin:12px 0;
+    border:1px solid #ddd;
+    border-radius:12px;
+    cursor:pointer;
+    transition:0.2s;
+}
+
+.option:hover{
+    background:#e3f2fd;
+    border-color:#1976d2;
+}
+
+.option input{
+    margin-right:10px;
+}
+
+/* BUTTON AREA */
+
+.button-area{
+    display:flex;
+    gap:15px;
+    margin-top:25px;
+}
+
+.nav-btn{
+    flex:1;
+    padding:14px;
+    border:none;
+    border-radius:12px;
+    background:linear-gradient(135deg,#1976d2,#0f4c81);
+    color:white;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.nav-btn:hover{
+    opacity:0.9;
+}
+
+.nav-btn:disabled{
+    background:#aaa;
+    cursor:not-allowed;
+}
+
+/* SUBMIT */
+
+.submit-btn{
+    width:100%;
+    margin-top:15px;
+    padding:14px;
+    border:none;
+    border-radius:12px;
+    background:linear-gradient(135deg,#2e7d32,#43a047);
+    color:white;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.submit-btn:hover{
+    opacity:0.9;
+}
+
+/* BACK */
+
+.back{
+    display:block;
+    text-align:center;
+    margin-top:20px;
+    color:#1976d2;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:700px){
+
+    .header{
+        padding:18px;
+    }
+
+    .header h1{
+        font-size:20px;
+    }
+
+    .timer{
+        font-size:16px;
+        padding:10px;
+    }
+
+    .container{
+        width:94%;
+    }
+
+    .progress-box{
+        flex-wrap:wrap;
+        gap:15px;
+    }
+
+    .progress-item{
+        flex:1;
+    }
+
+    .button-area{
+        flex-direction:column;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- HEADER -->
+
+<div class="header">
+
+    <div class="header-left">
+
+        <div class="header-icon">
+            📝
+        </div>
+
+        <div>
+            <h1>Online Examination</h1>
+        </div>
+
+    </div>
+
+    <div class="timer">
+
+        ⏱️ <span id="timer">00:00</span>
+
+    </div>
+
+</div>
+
+
+<!-- MAIN -->
+
+<div class="container">
+
+
+    <!-- EXAM INFORMATION -->
+
+    <div class="exam-info">
+
+        <h2>
+            📚 {{ exam["exam_name"] }}
+        </h2>
+
+        <div class="info">
+
+            📖 <strong>Subject:</strong>
+
+            {{ exam["subject"] }}
+
+        </div>
+
+        <div class="info">
+
+            📝 <strong>Questions:</strong>
+
+            <span id="totalQuestions">
+                {{ questions|length }}
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <!-- PROGRESS -->
+
+    <div class="progress-box">
+
+        <div class="progress-item">
+
+            <div
+                class="progress-number"
+                id="answeredCount">
+                0
+            </div>
+
+            <div class="progress-label">
+                Answered
+            </div>
+
+        </div>
+
+
+        <div class="progress-item">
+
+            <div
+                class="progress-number"
+                id="remainingCount">
+                {{ questions|length }}
+            </div>
+
+            <div class="progress-label">
+                Remaining
+            </div>
+
+        </div>
+
+
+        <div class="progress-item">
+
+            <div class="progress-number">
+                {{ questions|length }}
+            </div>
+
+            <div class="progress-label">
+                Total Questions
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- QUESTION CARD -->
+
+    <div class="question-card">
+
+        <div
+            class="question-number"
+            id="questionNumber">
+            Question 1
+        </div>
+
+
+        <div
+            class="question"
+            id="questionText">
+        </div>
+
+
+        <!-- OPTIONS -->
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="answer"
+                value="A"
+                onchange="selectAnswer('A')">
+
+            <span id="optionA"></span>
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="answer"
+                value="B"
+                onchange="selectAnswer('B')">
+
+            <span id="optionB"></span>
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="answer"
+                value="C"
+                onchange="selectAnswer('C')">
+
+            <span id="optionC"></span>
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="answer"
+                value="D"
+                onchange="selectAnswer('D')">
+
+            <span id="optionD"></span>
+
+        </label>
+
+
+        <!-- NAVIGATION -->
+
+        <div class="button-area">
+
+            <button
+                class="nav-btn"
+                id="previousBtn"
+                onclick="previousQuestion()">
+
+                ⬅ Previous
+
+            </button>
+
+
+            <button
+                class="nav-btn"
+                id="nextBtn"
+                onclick="nextQuestion()">
+
+                Next Question ➡
+
+            </button>
+
+        </div>
+
+
+        <!-- SUBMIT -->
+
+        <button
+            class="submit-btn"
+            onclick="submitExam()">
+
+            ✅ Submit Exam
+
+        </button>
+
+
+    </div>
+
+
+    <a
+        href="/available_exams"
+        class="back">
+
+        ⬅ Back to Available Exams
+
+    </a>
+
+
+</div>
+
+
+<script>
+
+/* =====================================================
+   QUESTIONS FROM FLASK
+   ===================================================== */
+
+const questions = {{ questions | tojson }};
+
+
+/* =====================================================
+   CURRENT QUESTION
+   ===================================================== */
+
+let currentQuestion = 0;
+
+
+/* =====================================================
+   ANSWERS
+   ===================================================== */
+
+let answers = {};
+
+
+/* =====================================================
+   TIMER
+   ===================================================== */
+
+let totalSeconds = 10 * 60;
+
+
+function updateTimer(){
+
+    let minutes = Math.floor(totalSeconds / 60);
+
+    let seconds = totalSeconds % 60;
+
+
+    document.getElementById("timer").innerText =
+
+        String(minutes).padStart(2,'0')
+        + ":"
+        + String(seconds).padStart(2,'0');
+
+
+    if(totalSeconds <= 0){
+
+        clearInterval(timerInterval);
+
+        alert("⏰ Time is over! Exam will be submitted.");
+
+        submitExam();
+
+        return;
+
+    }
+
+
+    totalSeconds--;
+
+}
+
+
+let timerInterval = setInterval(updateTimer,1000);
+
+updateTimer();
+
+
+/* =====================================================
+   SHOW QUESTION
+   ===================================================== */
+
+function showQuestion(){
+
+    const q = questions[currentQuestion];
+
+
+    document.getElementById("questionNumber").innerText =
+
+        "Question "
+        + (currentQuestion + 1)
+        + " of "
+        + questions.length;
+
+
+    document.getElementById("questionText").innerText =
+        q[1];
+
+
+    document.getElementById("optionA").innerText =
+        "A) " + q[2];
+
+
+    document.getElementById("optionB").innerText =
+        "B) " + q[3];
+
+
+    document.getElementById("optionC").innerText =
+        "C) " + q[4];
+
+
+    document.getElementById("optionD").innerText =
+        "D) " + q[5];
+
+
+    document.querySelectorAll(
+        'input[name="answer"]'
+    ).forEach(function(radio){
+
+        radio.checked = false;
+
+    });
+
+
+    /*
+       IMPORTANT:
+       answers are stored using QUESTION ID,
+       not current question index.
+    */
+
+    const questionId = String(q[0]);
+
+
+    if(answers[questionId]){
+
+        document.querySelector(
+            'input[value="' + answers[questionId] + '"]'
+        ).checked = true;
+
+    }
+
+
+    document.getElementById("previousBtn").disabled =
+
+        currentQuestion === 0;
+
+
+    if(currentQuestion === questions.length - 1){
+
+        document.getElementById("nextBtn").innerText =
+            "Finish Questions ➡";
+
+    }
+    else{
+
+        document.getElementById("nextBtn").innerText =
+            "Next Question ➡";
+
+    }
+
+
+    updateProgress();
+
+}
+
+
+/* =====================================================
+   SELECT ANSWER
+   ===================================================== */
+
+function selectAnswer(answer){
+
+    /*
+       SAVE ANSWER USING REAL QUESTION ID
+    */
+
+    const questionId =
+        String(questions[currentQuestion][0]);
+
+
+    answers[questionId] = answer;
+
+
+    updateProgress();
+
+}
+
+
+/* =====================================================
+   PROGRESS
+   ===================================================== */
+
+function updateProgress(){
+
+    const answered =
+        Object.keys(answers).length;
+
+
+    const total =
+        questions.length;
+
+
+    const remaining =
+        total - answered;
+
+
+    document.getElementById("answeredCount").innerText =
+        answered;
+
+
+    document.getElementById("remainingCount").innerText =
+        remaining;
+
+}
+
+
+/* =====================================================
+   NEXT QUESTION
+   ===================================================== */
+
+function nextQuestion(){
+
+    if(currentQuestion < questions.length - 1){
+
+        currentQuestion++;
+
+        showQuestion();
+
+    }
+    else{
+
+        alert(
+            "You are on the last question. Click Submit Exam to finish."
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   PREVIOUS QUESTION
+   ===================================================== */
+
+function previousQuestion(){
+
+    if(currentQuestion > 0){
+
+        currentQuestion--;
+
+        showQuestion();
+
+    }
+
+}
+
+
+/* =====================================================
+   SUBMIT EXAM
+   ===================================================== */
+
+function submitExam(){
+
+    clearInterval(timerInterval);
+
+
+    const answered =
+        Object.keys(answers).length;
+
+
+    const total =
+        questions.length;
+
+
+    if(answered < total){
+
+        const confirmSubmit = confirm(
+
+            "You have answered "
+            + answered
+            + " out of "
+            + total
+            + " questions.\n\n"
+            + "Do you want to submit the exam?"
+
+        );
+
+
+        if(!confirmSubmit){
+
+            timerInterval =
+                setInterval(updateTimer,1000);
+
+            return;
+
+        }
+
+    }
+
+
+    /*
+       SEND ANSWERS TO FLASK
+    */
+
+    const form = document.createElement("form");
+
+    form.method = "POST";
+
+    form.action = "/submit_exam";
+
+
+    /*
+       Exam ID
+    */
+
+    const examInput =
+        document.createElement("input");
+
+    examInput.type = "hidden";
+
+    examInput.name = "exam_id";
+
+    examInput.value =
+        "{{ exam['exam_id'] }}";
+
+    form.appendChild(examInput);
+
+
+    /*
+       Answers JSON
+    */
+
+    const answersInput =
+        document.createElement("input");
+
+    answersInput.type = "hidden";
+
+    answersInput.name = "answers";
+
+    answersInput.value =
+        JSON.stringify(answers);
+
+    form.appendChild(answersInput);
+
+
+    document.body.appendChild(form);
+
+    form.submit();
+
+}
+
+
+/* =====================================================
+   INITIAL QUESTION
+   ===================================================== */
+
+showQuestion();
+
+</script>
+
+
+</body>
+
+</html>
